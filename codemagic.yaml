@@ -1,0 +1,25 @@
+workflows:
+  faral-ia-android:
+    name: Faral IA Android Build
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Flutter build APK
+        script: |
+          flutter build apk --release --no-pub
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      email:
+        recipients:
+          - cachimacarlos748@gmail.com
