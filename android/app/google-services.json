@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "291066374487",
+    "project_id": "faral-ia",
+    "storage_bucket": "faral-ia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291066374487:android:9e548aee9a5577a4a23612",
+        "android_client_info": {
+          "package_name": "com.faral.ia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291066374487-9dkve4mb4tjo927o4ip5oitp6un6e7ri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.faral.ia",
+            "certificate_hash": "5e8b1bed491b369e2298c6654f9e0d3792dfd6b1"
+          }
+        },
+        {
+          "client_id": "291066374487-88mhk4p1fls914n5rkb6p14e6m7q5tja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAUh7OeE8wtr9PUu1299v6hAshmtTxfLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291066374487-88mhk4p1fls914n5rkb6p14e6m7q5tja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

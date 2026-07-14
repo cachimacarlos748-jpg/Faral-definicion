@@ -1,4 +1,4 @@
-package com.faralia.faral_ia_new
+package com.faral.ia
 
 import io.flutter.embedding.android.FlutterActivity
 
