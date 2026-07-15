@@ -5,7 +5,7 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       flutter: stable
-      java: 17
+      java: 11
       xcode: latest
       cocoapods: default
     scripts:
@@ -17,7 +17,7 @@ workflows:
           flutter packages pub get
       - name: Flutter build APK
         script: |
-          flutter build apk --release --no-pub -v
+          flutter build apk --release --no-pub
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
     publishing:

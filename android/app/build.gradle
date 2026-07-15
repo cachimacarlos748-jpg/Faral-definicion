@@ -25,21 +25,21 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.faral.ia"
-    compileSdk = 34
+    compileSdk = 33
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "11"
     }
 
     defaultConfig {
         applicationId = "com.faral.ia"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 33
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
     }
