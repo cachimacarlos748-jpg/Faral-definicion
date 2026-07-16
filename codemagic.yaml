@@ -14,17 +14,16 @@ workflows:
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
       - name: Force Modern Kotlin and Gradle
         script: |
-          # Forzar versiones en build.gradle de la app
-          sed -i 's/compileSdk = .*/compileSdk = 34/' android/app/build.gradle
-          sed -i 's/targetSdk = .*/targetSdk = 34/' android/app/build.gradle
-          
+          # Usar comandos más simples y compatibles para evitar errores de sed en macOS/CodeMagic
           # Forzar versiones en gradle.properties
-          echo "kotlin.code.style=official" >> android/gradle.properties
-          echo "kotlin.languageVersion=1.8" >> android/gradle.properties
-          echo "kotlin.apiVersion=1.8" >> android/gradle.properties
+          printf "\nkotlin.code.style=official\nkotlin.languageVersion=1.8\nkotlin.apiVersion=1.8\n" >> android/gradle.properties
           
-          # Forzar versión de Gradle en el wrapper
-          sed -i 's/gradle-.*-all.zip/gradle-8.1-all.zip/' android/gradle/wrapper/gradle-wrapper.properties
+          # Forzar versión de Gradle en el wrapper usando una técnica más robusta
+          echo "distributionBase=GRADLE_USER_HOME" > android/gradle/wrapper/gradle-wrapper.properties
+          echo "distributionPath=wrapper/dists" >> android/gradle/wrapper/gradle-wrapper.properties
+          echo "zipStoreBase=GRADLE_USER_HOME" >> android/gradle/wrapper/gradle-wrapper.properties
+          echo "zipStorePath=wrapper/dists" >> android/gradle/wrapper/gradle-wrapper.properties
+          echo "distributionUrl=https\://services.gradle.org/distributions/gradle-8.1-all.zip" >> android/gradle/wrapper/gradle-wrapper.properties
       - name: Get Flutter packages
         script: |
           flutter packages pub get
