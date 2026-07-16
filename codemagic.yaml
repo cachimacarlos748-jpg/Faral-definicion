@@ -12,6 +12,19 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+      - name: Force Modern Kotlin and Gradle
+        script: |
+          # Forzar versiones en build.gradle de la app
+          sed -i 's/compileSdk = .*/compileSdk = 34/' android/app/build.gradle
+          sed -i 's/targetSdk = .*/targetSdk = 34/' android/app/build.gradle
+          
+          # Forzar versiones en gradle.properties
+          echo "kotlin.code.style=official" >> android/gradle.properties
+          echo "kotlin.languageVersion=1.8" >> android/gradle.properties
+          echo "kotlin.apiVersion=1.8" >> android/gradle.properties
+          
+          # Forzar versión de Gradle en el wrapper
+          sed -i 's/gradle-.*-all.zip/gradle-8.1-all.zip/' android/gradle/wrapper/gradle-wrapper.properties
       - name: Get Flutter packages
         script: |
           flutter packages pub get
